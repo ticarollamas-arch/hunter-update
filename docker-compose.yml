@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  aegis-hunter:
+    build: .
+    container_name: aegis_hunter_cli
+    environment:
+      - LLM_API_KEY=${LLM_API_KEY}
+      - LLM_API_URL=${LLM_API_URL:-https://api.openai.com/v1/chat/completions}
+    volumes:
+      - ./db:/app/db
+    stdin_open: true
+    tty: true
